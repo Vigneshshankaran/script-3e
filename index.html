@@ -73,7 +73,6 @@
         --syntax-fn: #fbbf24;
       }
 
-      /* Animation Disabler */
       *,
       *::before,
       *::after {
@@ -82,8 +81,14 @@
         padding: 0;
         transition: none !important;
         animation: none !important;
-        transform: none !important;
       }
+
+      *:hover {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
       html {
         scroll-behavior: auto !important;
       }
@@ -96,6 +101,25 @@
         color: var(--color-body);
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
+      }
+
+      p {
+        color: #444266;
+        letter-spacing: -0.011em;
+        margin-bottom: 24px;
+        font-family: var(--font-sans), sans-serif;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      h2 {
+        color: #0d0a40 !important;
+        letter-spacing: -0.02em !important;
+        margin-top: 2.5em;
+        margin-bottom: 0.8em;
+        font-family: var(--font-sans), sans-serif !important;
+        font-weight: 500 !important;
+        line-height: 1.2 !important;
       }
 
       /* Universal font reset - strictly two fonts */
@@ -391,7 +415,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 64px;
-        align-items: start;
+        align-items: center;
       }
       .breadcrumb {
         display: flex;
@@ -500,12 +524,13 @@
         white-space: nowrap;
       }
       .download-pdf-link {
-        transition: all 0.2s ease;
+        color: #4039a7 !important;
+        font-weight: 600;
+        text-decoration: none;
       }
       .download-pdf-link:hover {
-        color: var(--color-brand-alt) !important;
-        transform: translateY(-1px);
-        opacity: 0.8;
+        color: #4039a7 !important;
+        text-decoration: underline;
       }
       .author-share {
         position: relative;
@@ -582,17 +607,32 @@
       /* Hero Logo Card Refinement */
       .hero-image {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
-        min-height: 480px;
+        min-height: 400px;
+        position: relative;
       }
       .hero-visual-wrapper {
         position: relative;
         width: 100%;
-        max-width: 540px;
+        max-width: 600px;
+        aspect-ratio: 16/9;
         display: flex;
         align-items: center;
         justify-content: center;
+        
+        border-radius: 24px;
+        border: 1px solid rgba(13, 10, 64, 0.05);
+        padding: 48px;
+        overflow: hidden;
+      }
+      .hero-visual-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230d0a40' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+        z-index: 0;
       }
       .hero-main-img {
         width: 100%;
@@ -802,13 +842,14 @@
         scroll-margin-top: 100px;
       }
       .rich-text h3 {
+        color: #0d0a40;
+        letter-spacing: 0.0125em;
+        margin-top: 1.8em;
+        margin-bottom: 0.6em;
+        font-family: var(--font-sans), sans-serif;
         font-size: 22px;
         font-weight: 500;
         line-height: 1.3;
-        letter-spacing: -0.01em;
-        color: var(--color-primary);
-        margin-top: 1.8em;
-        margin-bottom: 0.6em;
       }
       .rich-text strong, 
       .w-richtext strong {
@@ -1243,7 +1284,7 @@
         width: 100%;
       }
       .company-card {
-        background: white;
+        background: #FAFAFA;
         border: 1px solid var(--color-border);
         border-radius: 16px;
         padding: 24px;
@@ -1285,11 +1326,10 @@
         border-top: 1px dashed var(--color-border);
       }
       .company-stat-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 100px 1fr;
         align-items: flex-start;
-        font-size: 14px;
+        gap: 16px;
         padding: 16px 0;
         border-bottom: 1px solid #f1f5f9;
         position: relative;
@@ -1298,108 +1338,30 @@
         border-bottom: none;
       }
       .company-stat-label {
-        color: #94a3b8;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
+        color: #475569;
         letter-spacing: 0.05em;
-        margin-bottom: 6px;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        font-family: var(--font-sans), sans-serif;
+        font-size: 12px;
+        font-weight: 500;
       }
       .company-stat-value {
         color: var(--color-primary);
         font-size: 15px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.4;
+        text-align: right;
       }
 
-      /* Premium Video Component */
-      .premium-video-wrapper {
-        position: relative;
-        width: 100%;
-        border-radius: 16px;
-        overflow: hidden;
-        margin: 36px 0;
-        box-shadow: 0 12px 32px rgba(13, 10, 64, 0.08);
-        border: 1px solid rgba(226, 232, 240, 0.8);
-        background: #0d0a40;
-        font-family: 'Inter', sans-serif;
-      }
-      .premium-video-wrapper video {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-      }
-      .video-play-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(13, 10, 64, 0.15);
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        cursor: pointer;
-        z-index: 2;
-      }
-      .premium-video-wrapper:hover .video-play-overlay {
-        background: rgba(13, 10, 64, 0.05);
-      }
-      .premium-video-wrapper.has-caption .video-play-overlay {
-        bottom: 45px; /* Leave space for caption */
-      }
-      .play-button {
-        width: 72px;
-        height: 72px;
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-      }
-      .video-play-overlay:hover .play-button {
-        transform: scale(1.05);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-        background: rgba(255, 255, 255, 0.35);
-      }
-      .play-button svg {
-        width: 28px;
-        height: 28px;
-        fill: white;
-        margin-left: 4px;
-        transition: transform 0.3s ease;
-      }
-      .premium-video-wrapper.is-playing .video-play-overlay {
-        opacity: 0;
-        pointer-events: none;
-      }
-      .video-caption {
-        padding: 12px 16px;
-        font-size: 13px;
-        color: #64748b;
-        background: #f8fafc;
-        border-top: 1px solid #e2e8f0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .video-caption svg {
-        color: #94a3b8;
-      }
+
 
       .company-visit-link {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         margin-top: 24px;
-        color: #4f46e5;
+        color: #4039a7;
         text-decoration: none;
         font-weight: 600;
         font-size: 14px;
@@ -1409,7 +1371,7 @@
       }
 
       .sidebar-cta-card {
-        background: #f1f5ff;
+        background: #FAFAFA;
         border-radius: 16px;
         padding: 24px;
         border: 1px solid rgba(95, 70, 255, 0.1);
@@ -1427,24 +1389,25 @@
         margin-bottom: 20px;
       }
       .sidebar-cta-button {
-        background: #3b82f6;
+        background: #5f46ff;
         color: white;
         width: 100%;
-        padding: 12px 20px;
-        border-radius: 12px;
+        height: 56px;
+        padding: 0 20px;
+        border-radius: var(--radius-sm);
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
         text-decoration: none;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 15px;
-        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        transition: var(--transition);
+        box-shadow: 0 4px 20px rgba(13, 10, 64, 0.1);
       }
       .sidebar-cta-button:hover {
-        background: #2563eb;
-        transform: translateY(-1px);
+        background: var(--color-accent);
+        box-shadow: 0 4px 20px rgba(13, 10, 64, 0.15);
       }
 
       /* Webflow Component Styling */
@@ -1852,7 +1815,7 @@
         text-align: center;
       }
 
-      /* Related */
+      /* Related Articles Section - Premium Refresh */
       .related-section {
         max-width: var(--container-max);
         margin: 0 auto;
@@ -1860,21 +1823,28 @@
       }
       .section-header {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         justify-content: space-between;
-        margin-bottom: 48px;
+        margin-bottom: 40px;
       }
       .section-header h2 {
+        margin: 0 !important;
         font-size: 32px !important;
-        font-weight: 500;
-        color: #0d0a40 !important;
-        letter-spacing: -0.02em;
+        font-weight: 500 !important;
+        color: var(--color-primary) !important;
+        letter-spacing: -0.02em !important;
       }
       .section-header a {
-        font-size: 14px;
-        color: #1a1b3a !important;
+        font-size: 15px;
+        color: #4039a7;
         text-decoration: none;
-        font-weight: 400;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .section-header a:hover {
+        color: #4039a7;
       }
       .related-grid {
         display: grid;
@@ -1885,40 +1855,44 @@
         text-decoration: none;
         display: flex;
         flex-direction: column;
+        border-radius: 16px;
       }
       .card-image {
         aspect-ratio: 16/10;
         background: #f1f5f9;
-        border-radius: 8px;
+        border-radius: 12px;
         margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         overflow: hidden;
       }
-      .card-image-inner {
+      .card-image img {
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 48px;
+        object-fit: cover;
       }
       .card-body {
-        padding: 0;
+        padding: 4px 0;
       }
       .card-title {
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 500;
         color: var(--color-primary);
         line-height: 1.4;
-        margin-bottom: 12px;
+        margin-bottom: 0;
       }
       .card-divider {
         height: 1px;
         background-color: var(--color-border);
         width: 100%;
-        margin-top: 10px;
+        margin-top: 16px;
+        opacity: 0.5;
+      }
+
+      @media (max-width: 991px) {
+        .related-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 600px) {
+        .related-grid { grid-template-columns: 1fr; }
+        .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
       }
 
       /* Floating Share Dropdown (Right Side) */
@@ -2600,7 +2574,7 @@
         font-family: var(--font-sans) !important;
         font-size: 42px;
         font-weight: 600 !important;
-        color: #2563eb;
+        color: #0d0a40;
         letter-spacing: -0.04em;
         line-height: 1;
         margin-bottom: 4px;
@@ -2646,7 +2620,7 @@
         font-size: 18px;
         color: var(--color-text-secondary);
         line-height: 1.6;
-        margin-bottom: 24px;
+        margin-bottom: 48px;
       }
       .r-card-cvr-badge {
         display: inline-flex;
@@ -2700,7 +2674,7 @@
         font-family: var(--font-sans) !important;
         font-size: 15px;
         font-weight: 500;
-        color: #475569;
+        color: #444266;
         line-height: 1.5;
         margin-bottom: 24px;
       }
@@ -2711,7 +2685,7 @@
       }
       .r-card-context {
         font-size: 13px;
-        color: #64748b;
+        color: #444266;
         line-height: 1.5;
       }
       .results-card-wide {
@@ -2763,7 +2737,7 @@
       }
       .comp-desc {
         font-size: 14px;
-        color: #64748b;
+        color: #444266;
         line-height: 1.5;
       }
       .comp-arrow-center {
@@ -2790,6 +2764,85 @@
           border-right: none;
           border-bottom: 1px dashed #cbd5e1;
         }
+      }
+
+      @media print {
+        /* Hide UI elements unnecessary for PDF */
+        .floating-share-wrapper,
+        .toc-toggle,
+        .toc-mobile-overlay,
+        .back-to-top,
+        .meridian-cta,
+        .related-section,
+        .sidebar-right,
+        .sidebar-cta-card,
+        .meta-divider,
+        .download-pdf-link,
+        .hero-bg,
+        .meta-item:has(svg) {
+          display: none !important;
+        }
+
+        /* Reset layout for single column document */
+        .article-layout {
+          display: block !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        .article-content {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        .container {
+          max-width: 100% !important;
+          width: 100% !important;
+          padding: 0 !important;
+        }
+
+        /* Ensure text is black for printing */
+        body {
+          background: #ffffff !important;
+          color: #000000 !important;
+          font-size: 12pt !important;
+        }
+        h1, h2, h3 {
+          color: #000000 !important;
+        }
+        
+        /* Manage page breaks to avoid splitting content */
+        .stat-item, 
+        .r-card, 
+        .results-grid-2x2, 
+        .hero-footer-stats,
+        .article-content > div,
+        blockquote, 
+        img,
+        svg {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+
+        /* Specific fix for Key Takeaways component breaking */
+        .keytakeaways_component {
+          display: block !important;
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+          overflow: visible !important;
+          position: relative !important;
+        }
+        
+        h1, h2, h3 {
+          break-after: avoid !important;
+          page-break-after: avoid !important;
+          margin-top: 2rem !important;
+        }
+        .hero { 
+          break-after: avoid !important;
+          page-break-after: avoid !important;
+        }
+        p { orphans: 4; widows: 4; }
       }
     </style>
   </head>
@@ -2849,7 +2902,7 @@ BlackBuck: How India's Largest Trucking Platform Streamlined Equity at IPO
                 Feb 14, 2026
               </div>
               <div class="meta-divider" aria-hidden="true"></div>
-              <a href="#" class="meta-item download-pdf-link" style="text-decoration: none; color: #5f46ff; font-weight: 600;">
+              <a href="javascript:window.print()" class="meta-item download-pdf-link">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
@@ -2861,7 +2914,7 @@ BlackBuck: How India's Largest Trucking Platform Streamlined Equity at IPO
           </div>
           <div class="hero-image" aria-hidden="true">
             <div class="hero-visual-wrapper animate-reveal" style="animation-delay: 0.4s">
-              <svg width="100%" height="auto" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" height="auto" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: relative; z-index: 2; max-width: 400px;">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.18804 26.5712C9.25575 26.1949 9.96263 25.4718 9.96263 24.2839V24.2543C9.96263 23.5682 9.71226 23.059 9.35146 22.6974C8.76979 22.1146 7.90086 21.8047 6.52391 21.8047H0.949895H0.942504H0L0.566966 24.3282H0.942504V31.7878H6.46504C8.98332 31.7878 10.294 30.622 10.294 29.0208V28.9914C10.294 27.619 9.46928 26.9401 8.18804 26.5712ZM4.18262 24.3281H5.62583C6.33271 24.3281 6.6935 24.5716 6.6935 25.0143V25.0438C6.6935 25.0438 6.6935 25.0438 6.6935 25.0438C6.6935 25.4791 6.34741 25.7226 5.64054 25.7226H4.18262V24.3281ZM6.95122 28.5299C6.95122 28.9579 6.58304 29.2604 5.8541 29.2604H4.18262V27.7773H5.86881C6.59039 27.7773 6.95122 28.0725 6.95122 28.5078V28.5299Z" fill="#D71E48"></path>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1241 21.8008H11.7959V31.7839H18.9604V28.9285H15.1241V21.8008Z" fill="#D71E48"></path>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M24.7069 21.7305L20.5098 31.7874H24.0736L24.4197 30.8799H28.2413L28.5947 31.7874H32.2102L28.0131 21.7305H24.7069ZM27.2253 28.0247H25.4434L26.3343 25.6562L27.2253 28.0247Z" fill="#D71E48"></path>
@@ -3078,19 +3131,7 @@ BlackBuck: How India's Largest Trucking Platform Streamlined Equity at IPO
                 <p>Today, Flow Networks uses EquityList for their essential equity management processes:</p>
                 <blockquote><em>"Cap table, issuing stock options, managing shares/RSAs vesting, and valuation reports."</em></blockquote>
                 
-                <!-- Video 1: Platform Overview -->
-                <div class="premium-video-wrapper has-caption" onclick="const vid1=this.querySelector('video'); if(vid1.paused){vid1.play(); this.classList.add('is-playing');}else{vid1.pause(); this.classList.remove('is-playing');}">
-                  <video src="https://cdn.coverr.co/videos/coverr-a-person-working-on-a-laptop-in-a-server-room-9937/1080p.mp4" poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" preload="none" loop></video>
-                  <div class="video-play-overlay">
-                    <div class="play-button">
-                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                  </div>
-                  <div class="video-caption">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-                    Managing equity structures seamlessly
-                  </div>
-                </div>
+
 
                 <p>These core functions represent exactly what a growing startup needs—the ability to track ownership, compensate employees with equity, manage vesting schedules, and generate reports for stakeholders. By focusing on these fundamentals, Flow Networks can maintain accurate records and support their team without unnecessary complexity.</p>
               </div>
@@ -3120,19 +3161,7 @@ BlackBuck: How India's Largest Trucking Platform Streamlined Equity at IPO
                 <p>Beyond functionality, the user experience has been a highlight for Flow Networks.</p>
                 <blockquote><em>" I found the dashboard to be very well designed," Binh notes.</em></blockquote>
                 
-                <!-- Video 2: Dashboard Experience -->
-                <div class="premium-video-wrapper has-caption" onclick="const vid2=this.querySelector('video'); if(vid2.paused){vid2.play(); this.classList.add('is-playing');}else{vid2.pause(); this.classList.remove('is-playing');}">
-                  <video src="https://cdn.coverr.co/videos/coverr-scrolling-through-code-5401/1080p.mp4" poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" preload="none" loop></video>
-                  <div class="video-play-overlay">
-                    <div class="play-button">
-                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                  </div>
-                  <div class="video-caption">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                    Interactive dashboard and analytics view
-                  </div>
-                </div>
+
                 
                 <p>Good design in equity management software isn't just about aesthetics—it's about reducing errors, increasing efficiency, and making complex information accessible. When administrators can quickly understand their cap table status, vesting schedules, and investor relationships, they can make better decisions faster.</p>
               </div>
@@ -3300,8 +3329,9 @@ BlackBuck: How India's Largest Trucking Platform Streamlined Equity at IPO
           <h4>See it in action</h4>
           <p>Book a walkthrough tailored to your equity setup.</p>
           <a href="#" class="sidebar-cta-button">
-            Schedule Demo
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <div class="button-content-hero-section-8">
+              <p class="button-text">Schedule Demo</p>
+            </div>
           </a>
         </div>
       </aside>
@@ -3341,9 +3371,6 @@ BlackBuck: How India's Largest Trucking Platform Streamlined Equity at IPO
           <button type="submit" class="meridian-cta__button">
             <div class="button-content-hero-section-8">
               <p class="button-text">Get Started</p>
-              <div class="button-icon-hero-section">
-                <img loading="lazy" src="images/SVG-1.svg" alt="Button Icon" class="button-icon-normal normal">
-              </div>
             </div>
           </button>
         </form>
